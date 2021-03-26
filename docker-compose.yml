@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+    frontend:
+        build: 
+            context: .
+            target: builder
+        image: simple-react-app/frontend
+        container_name: frontend
+        command: npm start
+        network_mode: host
+        volumes:
+            - /var/run/docker.sock:/var/run/docker-host.sock 
+            - ./src:/usr/src/app/src
+        
